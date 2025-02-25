@@ -78,7 +78,14 @@ export default function Index() {
           <View style={styles.todoContainer}>
               <View style={styles.todoInfoContainer}>
                 <Checkbox value={item.isDone} onValueChange={() => {}} />
-                <Text> {item.title}</Text>
+                <Text
+              style={[
+                styles.todoText,
+                todo.isDone && { textDecorationLine: "line-through" },
+              ]}
+            >
+              {todo.title}
+           </Text>
               </View>
               <TouchableOpacity
                   onPress={() => {
@@ -134,5 +141,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 10,
     alignItems: "center",
+  },
+  todoText: {
+    fontSize: 16,
+    color: "#333",
   },
 });
