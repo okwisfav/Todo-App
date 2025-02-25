@@ -75,9 +75,12 @@ export default function Index() {
         data={todoData}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item })  => (
-          <Text>
-            {item.title}
-          </Text>
+          <View style={styles.todoContainer}>
+              <View style={styles.todoInfoContainer}>
+                <Checkbox value={item.isDone} onValueChange={() => {}} />
+                <Text> {item.title}</Text>
+              </View>
+          </View>
         )}
       />
     </SafeAreaView>
@@ -110,5 +113,18 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     color: "#333",
+  },
+  todoContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    backgroundColor: "#fff",
+    padding: 16,
+    borderRadius: 10,
+    marginBottom: 20,
+  },
+  todoInfoContainer: {
+    flexDirection: "row",
+    gap: 10,
+    alignItems: "center",
   },
 });
