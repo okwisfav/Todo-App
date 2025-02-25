@@ -1,6 +1,7 @@
 import React from "react";
-import { FlatList, Text, StyleSheet } from "react-native";
+import { FlatList, Text, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function Index() {
   const todoData = [
@@ -38,6 +39,9 @@ export default function Index() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View>
+
+      </View>
       <FlatList 
         data={todoData}
         keyExtractor={(item) => item.id.toString()}
