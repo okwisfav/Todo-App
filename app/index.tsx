@@ -80,7 +80,14 @@ export default function Index() {
                 <Checkbox value={item.isDone} onValueChange={() => {}} />
                 <Text> {item.title}</Text>
               </View>
-              <Ionicons name="trash" size={24} color={"red"} />
+              <TouchableOpacity
+                  onPress={() => {
+                    deleteTodo(todo.id);
+                    alert("Deleted " + todo.id);
+                  }}
+                >
+                  <Ionicons name="trash" size={24} color={"red"} />
+               </TouchableOpacity>
           </View>
         )}
       />
