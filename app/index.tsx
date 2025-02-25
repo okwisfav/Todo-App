@@ -80,6 +80,7 @@ export default function Index() {
                 <Checkbox value={item.isDone} onValueChange={() => {}} />
                 <Text> {item.title}</Text>
               </View>
+              <Ionicons name="trash" size={24} color={"red"} />
           </View>
         )}
       />
