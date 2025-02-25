@@ -1,4 +1,5 @@
-import { FlatList, Text, View } from "react-native";
+import React from "react";
+import { FlatList, Text, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
@@ -34,14 +35,9 @@ export default function Index() {
       isDone: false,
     },
   ];
+
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <SafeAreaView style={styles.container}>
       <FlatList 
         data={todoData}
         keyExtractor={(item) => item.id.toString()}
@@ -54,4 +50,11 @@ export default function Index() {
     </SafeAreaView>
   );
 }
- 
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
