@@ -39,8 +39,8 @@ export default function Index() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View>
-
+      <View style={styles.header}>
+         <Ionicons name="menu" size={24} color="black" />
       </View>
       <FlatList 
         data={todoData}
@@ -58,7 +58,13 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    paddingHorizontal: 20,
+    backgroundColor: "#f5f5f5",
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
     alignItems: "center",
+    marginBottom: 20,
   },
 });
