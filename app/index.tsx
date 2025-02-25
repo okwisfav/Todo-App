@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, Text, StyleSheet, View } from "react-native";
+import { FlatList, Text, StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -40,12 +40,24 @@ export default function Index() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-         <Ionicons name="menu" size={24} color="black" />
+      <TouchableOpacity
+          onPress={() => {
+            alert("Clicked!");
+          }}
+        >
+          <Ionicons name="menu" size={24} color={"#333"} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {}}>
+          <Image
+            source={{ uri: "https://xsgames.co/randomusers/avatar.php?g=male" }}
+            style={{ width: 40, height: 40, borderRadius: 20 }}
+          />
+        </TouchableOpacity>
       </View>
       <FlatList 
         data={todoData}
         keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
+        renderItem={({ item })  => (
           <Text>
             {item.title}
           </Text>
