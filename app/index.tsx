@@ -3,6 +3,7 @@ import { FlatList, Text, StyleSheet, View, Image, TouchableOpacity, TextInput, P
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
+import { Checkbox } from "expo-checkbox";
 
 export default function Index() {
   const todoData = [
