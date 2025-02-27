@@ -94,7 +94,11 @@ export default function Index() {
         )}
       />
       {/* Footer sections */}
-       <KeyboardAvoidingView style={styles.footer}>
+      <KeyboardAvoidingView
+        style={styles.footer}
+        behavior="padding"
+        keyboardVerticalOffset={10}
+      >
           <TextInput placeholder="Add new todo" style={styles.newTodoInput} />
           <TouchableOpacity style={styles.addButton} onPress={() => {}}>
             <Ionicons name="add" size={34} color={"#fff"} />
