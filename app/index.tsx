@@ -94,7 +94,7 @@ export default function Index() {
         )}
       />
        <View style={styles.footer}>
-          <TextInput placeholder="Add new todo" />
+          <TextInput placeholder="Add new todo" style={styles.newTodoInput} />
           <TouchableOpacity onPress={() => {}}>
             <Ionicons name="add" size={24} color={"#333"} />
           </TouchableOpacity>
@@ -152,5 +152,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     bottom: 20,
+  },
+  newTodoInput: {
+    flex: 1,
+    backgroundColor: "#fff",
+    padding: 16,
+    borderRadius: 10,
+    fontSize: 16,
+    color: "#333",
   },
 });
