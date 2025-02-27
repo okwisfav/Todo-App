@@ -86,18 +86,19 @@ export default function Index() {
             >
               {item.title}
            </Text>
-              </View>
-              <TouchableOpacity
-                  onPress={() => {
-                    deleteTodo(item.id);
-                    alert("Deleted " + item.id);
-                  }}
-                >
+             </View>
+              <TouchableOpacity>
                   <Ionicons name="trash" size={24} color={"red"} />
                </TouchableOpacity>
           </View>
         )}
       />
+       <View>
+          <TextInput placeholder="Add new todo" />
+          <TouchableOpacity onPress={() => {}}>
+            <Ionicons name="add" size={24} color={"#333"} />
+          </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
