@@ -93,9 +93,10 @@ export default function Index() {
           </View>
         )}
       />
+      {/* Footer sections */}
        <View style={styles.footer}>
           <TextInput placeholder="Add new todo" style={styles.newTodoInput} />
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity style={styles.addButton} onPress={() => {}}>
             <Ionicons name="add" size={24} color={"#333"} />
           </TouchableOpacity>
       </View>
@@ -160,5 +161,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     fontSize: 16,
     color: "#333",
+  },
+  addButton: {
+    backgroundColor: "#4630EB",
+    padding: 8,
+    borderRadius: 10,
+    marginLeft: 20,
   },
 });
