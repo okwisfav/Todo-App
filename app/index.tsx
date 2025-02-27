@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, Text, StyleSheet, View, Image, TouchableOpacity, TextInput, Platform } from "react-native";
+import { FlatList, Text, StyleSheet, View, Image, TouchableOpacity, TextInput, Platform,  KeyboardAvoidingView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
@@ -94,12 +94,12 @@ export default function Index() {
         )}
       />
       {/* Footer sections */}
-       <View style={styles.footer}>
+       <KeyboardAvoidingView style={styles.footer}>
           <TextInput placeholder="Add new todo" style={styles.newTodoInput} />
           <TouchableOpacity style={styles.addButton} onPress={() => {}}>
-            <Ionicons name="add" size={24} color={"#333"} />
+            <Ionicons name="add" size={34} color={"#fff"} />
           </TouchableOpacity>
-      </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
