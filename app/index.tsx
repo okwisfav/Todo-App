@@ -81,16 +81,16 @@ export default function Index() {
                 <Text
               style={[
                 styles.todoText,
-                todo.isDone && { textDecorationLine: "line-through" },
+                item.isDone && { textDecorationLine: "line-through" },
               ]}
             >
-              {todo.title}
+              {item.title}
            </Text>
               </View>
               <TouchableOpacity
                   onPress={() => {
-                    deleteTodo(todo.id);
-                    alert("Deleted " + todo.id);
+                    deleteTodo(item.id);
+                    alert("Deleted " + item.id);
                   }}
                 >
                   <Ionicons name="trash" size={24} color={"red"} />
