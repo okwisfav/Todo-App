@@ -75,22 +75,7 @@ export default function Index() {
         data={todoData}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item })  => (
-          <View style={styles.todoContainer}>
-              <View style={styles.todoInfoContainer}>
-                <Checkbox value={item.isDone} onValueChange={() => {}} />
-                <Text
-              style={[
-                styles.todoText,
-                item.isDone && { textDecorationLine: "line-through" },
-              ]}
-            >
-              {item.title}
-           </Text>
-             </View>
-              <TouchableOpacity>
-                  <Ionicons name="trash" size={24} color={"red"} />
-               </TouchableOpacity>
-          </View>
+       
         )}
       />
       {/* Footer sections */}
@@ -106,6 +91,25 @@ export default function Index() {
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
+}
+
+const ToDoItem =() => {
+  <View style={styles.todoContainer}>
+  <View style={styles.todoInfoContainer}>
+    <Checkbox value={item.isDone} color={item.isDone ? '#4630EB' : undefined} onValueChange={() => {}} />
+    <Text
+  style={[
+    styles.todoText,
+    item.isDone && { textDecorationLine: "line-through" },
+  ]}
+>
+  {item.title}
+</Text>
+ </View> 
+  <TouchableOpacity>
+      <Ionicons name="trash" size={24} color={"red"} />
+   </TouchableOpacity>
+</View>
 }
 
 const styles = StyleSheet.create({
