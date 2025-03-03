@@ -5,6 +5,14 @@ import { Ionicons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
 import { Checkbox } from "expo-checkbox";
 
+
+type ToDoType = {
+  id: number;
+  title: string;
+  isDone: boolean;
+};
+
+
 export default function Index() {
   const todoData = [
     {
