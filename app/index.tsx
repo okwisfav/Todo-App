@@ -50,7 +50,25 @@ export default function Index() {
   const  [todos,  setTodos] = useState<ToDoType[]>(todoData);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [todoText, setTodoText] = useState<string>("");
+  const [oldTodos, setOldTodos] = useState<ToDoType[]>([]);
 
+  const addTodo = async () => {
+    try {
+      const newTodo = {
+        id: Math.random(),
+        title: todoText,
+        isDone: false,
+      };
+      todos.push(newTodo);
+      setTodos(todos);
+      setOldTodos(todos);
+      await AsyncStorage.setItem("my-todo", JSON.stringify(todos));
+      setTodoText("");
+      Keyboard.dismiss();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <SafeAreaView style={styles.container}>
       {/* Header sections*/}
