@@ -14,8 +14,7 @@ type ToDoType = {
 
 
 export default function Index() {
-  const  [todos,  setTodos] = useState();
-  
+
   const todoData = [
     {
       id: 1,
@@ -48,7 +47,9 @@ export default function Index() {
       isDone: false,
     },
   ];
+  const  [todos,  setTodos] = useState<ToDoType[]>(todoData);
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [todoText, setTodoText] = useState<string>("");
 
   return (
     <SafeAreaView style={styles.container}>
@@ -82,7 +83,7 @@ export default function Index() {
       </View>
 
       <FlatList 
-        data={todoData}
+        data={todos}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item })  => (
             <ToDoItem 
