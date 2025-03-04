@@ -2,10 +2,9 @@ import React from "react";
 import { FlatList, Text, StyleSheet, View, Image, TouchableOpacity, TextInput, Platform,  KeyboardAvoidingView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
-import { useEffect, useState } from "react";
 import { Checkbox } from "expo-checkbox";
-
-
+import { useEffect, useState } from "react";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 type ToDoType = {
   id: number;
   title: string;
