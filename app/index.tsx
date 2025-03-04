@@ -98,10 +98,16 @@ export default function Index() {
         behavior="padding"
         keyboardVerticalOffset={10}
       >
-          <TextInput placeholder="Add new todo" style={styles.newTodoInput} />
-          <TouchableOpacity style={styles.addButton} onPress={() => {}}>
-            <Ionicons name="add" size={34} color={"#fff"} />
-          </TouchableOpacity>
+        <TextInput
+          placeholder="Add New ToDo"
+          value={todoText}
+          onChangeText={(text) => setTodoText(text)}
+          style={styles.newTodoInput}
+          autoCorrect={false}
+        />
+        <TouchableOpacity style={styles.addButton} onPress={() => addTodo()}>
+          <Ionicons name="add" size={34} color={"#fff"} />
+        </TouchableOpacity>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
