@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, Text, StyleSheet, View, Image, TouchableOpacity, TextInput, Platform,  KeyboardAvoidingView } from "react-native";
+import { FlatList, Text, StyleSheet, View, Image, TouchableOpacity, TextInput, Platform,  KeyboardAvoidingView,Keyboard } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { Checkbox } from "expo-checkbox";
@@ -46,10 +46,27 @@ export default function Index() {
       isDone: false,
     },
   ];
-  const  [todos,  setTodos] = useState<ToDoType[]>(todoData);
-  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [todos, setTodos] = useState<ToDoType[]>([]);
   const [todoText, setTodoText] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [oldTodos, setOldTodos] = useState<ToDoType[]>([]);
+
+
+  useEffect(() => {
+    const getTodos = async () => {
+      try {
+        const todos = await AsyncStorage.getItem("my-todo");
+        if (todos !== null) {
+          setTodos(JSON.parse(todos));
+          setOldTodos(JSON.parse(todos));
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getTodos();
+  }, []);
+
 
   const addTodo = async () => {
     try {
