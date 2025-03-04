@@ -14,6 +14,8 @@ type ToDoType = {
 
 
 export default function Index() {
+  const  [todos,  setTodos] = useState();
+  
   const todoData = [
     {
       id: 1,
