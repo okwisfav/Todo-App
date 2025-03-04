@@ -83,7 +83,10 @@ export default function Index() {
         data={todoData}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item })  => (
-       
+            <ToDoItem 
+            todo={item}
+             
+            />
         )}
       />
       {/* Footer sections */}
@@ -101,24 +104,42 @@ export default function Index() {
   );
 }
 
-const ToDoItem =() => {
+const ToDoItem = ({
+  todo,
+  deleteTodo,
+  handleDone,
+}: {
+  todo: ToDoType;
+  deleteTodo: (id: number) => void;
+  handleDone: (id: number) => void;
+}) => (
   <View style={styles.todoContainer}>
-  <View style={styles.todoInfoContainer}>
-    <Checkbox value={item.isDone} color={item.isDone ? '#4630EB' : undefined} onValueChange={() => {}} />
-    <Text
-  style={[
-    styles.todoText,
-    item.isDone && { textDecorationLine: "line-through" },
-  ]}
->
-  {item.title}
-</Text>
- </View> 
-  <TouchableOpacity>
+    <View style={styles.todoInfoContainer}>
+      <Checkbox
+        value={todo.isDone}
+        onValueChange={() => handleDone(todo.id)}
+        color={todo.isDone ? "#4630EB" : undefined}
+      />
+      <Text
+        style={[
+          styles.todoText,
+          todo.isDone && { textDecorationLine: "line-through" },
+        ]}
+      >
+        {todo.title}
+      </Text>
+    </View>
+    <TouchableOpacity
+      onPress={() => {
+        deleteTodo(todo.id);
+        alert("Deleted " + todo.id);
+      }}
+    >
       <Ionicons name="trash" size={24} color={"red"} />
-   </TouchableOpacity>
-</View>
-}
+    </TouchableOpacity>
+  </View>
+);
+
 
 const styles = StyleSheet.create({
   container: {
